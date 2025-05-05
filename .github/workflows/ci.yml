@@ -1,9 +1,11 @@
 on:
   push:
     branches:
+      - master
       - develop
   pull_request:
     branches:
+      - master
       - develop
 
 jobs:
@@ -19,3 +21,4 @@ jobs:
 
       - name: Build
         run: ./gradlew build
+      - run: java Try.java
