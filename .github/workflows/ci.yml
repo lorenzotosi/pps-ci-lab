@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: joschi/setup-jdk@v2.3.0 
+        with: 
+ 	  java-version: 17
+
+      - name: Build
+        run: ./gradlew build
